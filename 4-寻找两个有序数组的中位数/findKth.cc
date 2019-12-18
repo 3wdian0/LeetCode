@@ -66,7 +66,7 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
     int b = nums2.size();
     if((a+b)%2==0){
         cout<<"第"<<(a+b)/2<<" "<<(a+b)/2+1<<endl;
-        return (findKth(nums1,0,a-1, nums2,0, b-1, (a+b)/2) + findKth(nums1,0,a-1, nums2,0,b-1, (a+b)/2+1))/2;
+        return (findKth(nums1,0,a-1, nums2,0, b-1, (a+b)/2) + findKth(nums1,0,a-1, nums2,0,b-1, (a+b)/2+1))/2.;
     }else{
         cout<<"第"<<(a+b)/2+1<<endl;
         return findKth(nums1,0,a-1, nums2,0,b-1, (a+b)/2+1) ;
@@ -76,9 +76,9 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
 
 int main(int argc, char *argv[]){
     vector<int> A, B;
-    A.push_back(1);A.push_back(3);A.push_back(5);A.push_back(7);A.push_back(9);
-    B.push_back(2);B.push_back(4);B.push_back(6);B.push_back(8);B.push_back(10);B.push_back(11);
-    for(int i=1; i<=11; i++){
+    A.push_back(1);A.push_back(3);//A.push_back(5);A.push_back(7);A.push_back(9);
+    B.push_back(2);B.push_back(4);//B.push_back(6);B.push_back(8);B.push_back(10);B.push_back(11);
+    for(int i=1; i<=A.size()+B.size(); i++){
         int k = i;
         cout<<"\ninput="<<k<<" output="<<findKth(A,0,A.size()-1,B,0,B.size()-1,k)<<endl;
     }

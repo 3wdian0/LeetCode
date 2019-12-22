@@ -39,7 +39,7 @@ int find_rotate_index(vector<int> &nums, int left,int right){
         }
     }
     //cout<<nums[left]<<":"<<nums[right]<<endl;
-    return nums[left]<nums[right]?:left,right;
+    return nums[left]<nums[right]?left:right;
 }
 
 int binarySearch(vector<int> &nums, int left, int right, int target){

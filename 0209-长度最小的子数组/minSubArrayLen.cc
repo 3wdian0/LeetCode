@@ -38,6 +38,35 @@ public:
 
         return m==INT_MAX?0:m;
     }
+    int fun(int s, vector<int> & nums){
+       if(nums.size()==0)
+            return 0;
+            
+        int begin=0;
+        int i    =0;
+        int m    = INT_MAX;
+        int sum      = nums[i];
+        while(begin<=i && i<nums.size() && begin<nums.size()){
+            if(sum<s){
+                if(i+1<nums.size()){
+                    i++;
+                    sum += nums[i];
+                }else{
+                    i++;
+                }
+             
+            }else if(sum>=s){
+                m = min(m, i-begin+1);
+                sum -= nums[begin];
+                begin++;
+            }   
+            if(m==1)
+                break;
+        }       
+        
+        return m==INT_MAX?0:m;
+
+    }
 };
 int main(int argc, char* argv[]){
     vector<int> nums;
@@ -46,7 +75,7 @@ int main(int argc, char* argv[]){
         nums.push_back(a[i]);
     }
     Solution *s = new Solution();
-    cout<<s->minSubArrayLen(7,nums)<<endl;
-    cout<<s->minSubArrayLen(8,nums)<<endl;
+    cout<<s->minSubArrayLen(7,nums)<<" "<<s->fun(7,nums)<<endl;
+    cout<<s->minSubArrayLen(8,nums)<<" "<<s->fun(8,nums)<<endl;
     return 0;
 }
